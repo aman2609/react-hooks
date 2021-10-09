@@ -15,15 +15,26 @@ let App=()=> {
   // },[])
 
 
+  // case 1
+  // empty array is passed
+  // In case 1 useEffect was called only once during render  
+  // so cleanup will run when component is unmounted from page
+  useEffect(()=>{
+    console.log("useEffect case 1 was called");
+    return ()=>{
+      console.log("cleanup function case 1");
+    }
+  },[])
+
   // case 2
   // no array is passed
   // useEffect is caleed after render & each rerender
-  useEffect(()=>{
-    console.log("useEffect case 2 was called");
-    return ()=>{
-      console.log("cleanup function");
-    }
-  })
+  // useEffect(()=>{
+  //   console.log("useEffect case 2 was called");
+  //   return ()=>{
+  //     console.log("cleanup function case 2");
+  //   }
+  // })
 
   // case 3
   // array is passed with one of state variable
